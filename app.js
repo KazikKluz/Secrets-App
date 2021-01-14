@@ -11,6 +11,8 @@ const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const FacebookStrategy = require("passport-facebook").Strategy;
 const findOrCreate = require("mongoose-findorcreate");
 
+require("dotenv").config();
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static("public"));
 app.set("view engine", "ejs");
@@ -24,12 +26,12 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://localhost:27017/secretsDB", {
+mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
 
-require("dotenv").config();
+
 
 const userSchema = new mongoose.Schema({
   email: String,
