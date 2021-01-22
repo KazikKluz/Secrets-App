@@ -30,8 +30,7 @@ mongoose.connect(process.env.DB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-
+mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema({
   email: String,
@@ -64,7 +63,8 @@ passport.use(
     {
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
-      callbackURL: "http://localhost:3000/auth/google/secrets",
+      callbackURL:
+        "https://ec2-54-155-167-74.eu-west-1.compute.amazonaws.com:3443/auth/google/secrets",
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOrCreate({ googleId: profile.id }, function (err, user) {
@@ -88,12 +88,6 @@ passport.use(
     }
   )
 );
-
-app.listen(3000, (err) => {
-  if (!err) {
-    console.log("server running at port 3000");
-  }
-});
 
 app.get("/", (req, res) => {
   res.render("home");
@@ -196,4 +190,10 @@ app.get("/secrets", (req, res) => {
       res.render("secrets", { userWithSecrets: foundUser });
     }
   });
+});
+
+app.listen(3000, (err) => {
+  if (!err) {
+    console.log("server running at port 3000");
+  }
 });
