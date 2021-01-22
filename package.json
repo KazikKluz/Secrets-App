@@ -16,7 +16,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "md5": "^2.3.0",
-    "mongoose": "^5.11.11",
+    "mongoose": "^5.11.13",
     "mongoose-encryption": "^2.0.3",
     "mongoose-findorcreate": "^3.0.0",
     "passport": "^0.4.1",
@@ -25,7 +25,5 @@
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0"
   },
-  "devDependencies": {
-    "eslint": "^7.17.0"
-  }
+  "devDependencies": {}
 }
