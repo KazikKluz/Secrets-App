@@ -1,11 +1,14 @@
-
 body {
-  background-color: #E8ECEF;
+  background-color: #e8ecef;
+}
+
+h1 {
+  font-size: 2.5rem;
 }
 
 .centered {
-    padding-top: 200px;
-    text-align: center;
+  padding-top: 200px;
+  text-align: center;
 }
 
 .secret-text {
@@ -16,5 +19,5 @@ body {
 }
 
 .container {
-    text-align: center;
+  text-align: center;
 }
