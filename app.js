@@ -64,7 +64,7 @@ passport.use(
       clientID: process.env.CLIENT_ID,
       clientSecret: process.env.CLIENT_SECRET,
       callbackURL:
-        "https://ec2-54-155-167-74.eu-west-1.compute.amazonaws.com:3443/auth/google/secrets",
+        "https://secrets-app-9vdd6.ondigitalocean.app/auth/google/secrets",
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOrCreate({ googleId: profile.id }, function (err, user) {
@@ -79,7 +79,8 @@ passport.use(
     {
       clientID: process.env.APP_ID,
       clientSecret: process.env.APP_SECRET,
-      callbackURL: "http://localhost:3000/auth/facebook/secrets",
+      callbackURL:
+        "https://secrets-app-9vdd6.ondigitalocean.app/auth/facebook/secrets",
     },
     function (accessToken, refreshToken, profile, cb) {
       User.findOrCreate({ facebookId: profile.id }, function (err, user) {
